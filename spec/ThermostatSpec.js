@@ -25,4 +25,15 @@ describe('Thermostat', function(){
     thermostat.down(11)
     expect(thermostat.temperature()).toEqual(thermostat.MINIMUM_TEMP);
   });
+
+  it('has power saving mode on by default', function(){
+    expect(thermostat.isPowerSavingModeOn()).toBe(true);
+  });
+
+  it('can switch PSM back on', function(){
+    thermostat.switchPowerSavingModeOff();
+    expect(thermostat.isPowerSavingModeOn()).toBe(false);
+    thermostat.switchPowerSavingModeOn();
+    expect(thermostat.isPowerSavingModeOn()).toBe(true);
+  });
 });
